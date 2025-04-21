@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sit Means More</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Anton', sans-serif;
+      background-color: #000;
+      overflow: hidden;
+    }
+    header {
+      position: fixed;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 50px;
+      z-index: 10;
+    }
+    .nav img {
+      height: 40px;
+      margin: 0 10px;
+    }
+    .section {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      transition: all 1s ease;
+    }
+    .page1 {
+      background: url('Artboard 3.png') left center no-repeat,
+                  url('Artboard 3 copy.png') right center no-repeat;
+      background-size: 50% 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .page1 img {
+      width: 600px;
+    }
+    .page2 {
+      background: url('Artboard 1.png') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(100%);
+      z-index: 0;
+    }
+    .page2.active {
+      transform: translateY(0%);
+    }
+    .page2 img {
+      max-width: 80%;
+      animation: riseUp 1s ease-out forwards;
+    }
+    @keyframes riseUp {
+      0% { transform: translateY(100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <img src="Artboard 10.png" alt="COLLECTION"/>
+    <img src="Artboard 18.png" alt="Sitmeansmore"/>
+    <div style="margin-left:auto; display:flex;">
+      <img src="Artboard 16.png" alt="CH1"/>
+      <img src="Artboard 17.png" alt="CH2"/>
+      <img src="Artboard 19.png" alt="CH3"/>
+    </div>
+  </header>
+
+  <section class="section page1" onclick="goToNextPage()">
+    <img src="Artboard 21.png" alt="Chair Text"/>
+  </section>
+
+  <section class="section page2" id="page2">
+    <img src="Artboard 20.png" alt="Sit Means More"/>
+    <img src="Artboard 7.png" alt="Description"/>
+  </section>
+
+  <script>
+    function goToNextPage() {
+      document.getElementById('page2').classList.add('active');
+    }
+  </script>
+</body>
+</html>
